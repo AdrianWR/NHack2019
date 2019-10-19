@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <title>Our Nasa Project</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="{% static 'hhands/style.css' %}">
+</head>
+<html>
+    <body>
+        <h1>Our web-map application</h1>
+        <div></div>
+        <div id='map' style="width: 100%; height: 400px;"></div>
+        <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYWRyaWFud3IiLCJhIjoiY2sxeHdhamxkMGM2MDNub2lscGQyNHo2bSJ9.7FvJIEav3cZQbB2XwoAIVw';
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11'
+        });
+        </script>
+    </body>
+</html>
