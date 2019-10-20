@@ -1,4 +1,25 @@
+body {
+    background-image: linear-gradient(to right, darkorchid , darkmagenta);
+}
+
 h1 {
     font-family: Arial;
     color: green;
+}
+
+#button-placeholder {
+    position: relative;
+    top: 400px;
+    width: 80%;
+    padding: 5px;
+    margin: auto 0;
+    display: block;
+}
+
+#btn-login {
+    height: 50px;
+    width: 50px;
+    border: 1px black solid;
+    border-radius: 25px;
+    background-color: white;
 }
