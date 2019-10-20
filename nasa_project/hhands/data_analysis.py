@@ -1,5 +1,5 @@
-import pandas as pd
-import requests, json
+import json
+import requests
 
 # NASA Natural Disasters Climatic Database Raw Data
 CLIMATIC_DATABASE_URL = 'https://eonet.sci.gsfc.nasa.gov/api/v2.1/events'
