@@ -8,6 +8,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
+    <main>
+        <div id="container-login">
+          <a href="auth/login">
+            <img id="login" src="../../static/hhands/images/login.png" alt="">
+          </a>
+        </div>
+        <div id="logo"></div>
         <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -75,12 +82,20 @@
                 </div>
             </div>
             <div class="container-fluid">
-            <h1>Nossa plataforma</h1>
+            
             <div id="button-placeholder">
-                <button type="button" class="btn btn-outline-light btn-lg" data-toggle="modal" data-target="#modalLoginForm">Login</button>
-                <button type="button" class="btn btn-outline-light btn-lg" data-toggle="modal" data-target="#modalRegisterForm">Conecte-se</button>
-                <button type="button" class="btn btn-outline-light btn-lg"><a href="/app">Aplicação</a></button>
+                <button type="button" class="btn btn-outline-light btn-lg" data-toggle="modal" data-target="#modalLoginForm">Conecte-se</button>
+                <button type="button" class="btn btn-outline-light btn-lg" data-toggle="modal" data-target="#modalRegisterForm">Conheça-nos</button>
             </div>
         </div>
     </div>
+</main>
+<footer>
+    Seja você também um apoiador!
+    <ul id="sponsors">
+        <li><img src="../../static/hhands/images/picpay.png" alt=""></li>
+        <li><img src="../../static/hhands/images/kpmg.png" alt=""></li>
+        <li><img src="../../static/hhands/images/johnson-and-johnson.png" alt=""></li>
+    </ul>
+</footer>
 </body>

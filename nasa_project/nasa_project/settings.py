@@ -54,7 +54,7 @@ ROOT_URLCONF = 'nasa_project.urls'
 
 TEMPLATES = [
     {
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'APP_DIRS': True,
         'OPTIONS': {
@@ -84,13 +84,6 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
-
-AUTHENTICATION_BACKENDS = [
-    'social_core.backends.google.GoogleOpenId',
-    'social_core.backends.google.GoogleOAuth2',
-    'social_core.backends.google.GoogleOAuth',
-    'django.contrib.auth.backends.ModelBackend',
-]
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -127,4 +120,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/app'
