@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-{% load static %}
+
 <html>
     <head>
-        <title>Match do Bem</title>
+        <title>Connect - Conectando o Brasil</title>
+        <style>
+            main {background-color: purple;}
+            .containe {background-color: purple;}
+            h1 {color: white; text-align: center; margin: 20px 0; padding: 30px 0;}
+            p {position: absolute; text-align: center; bottom: 0; margin-left: 150px;}
+        </style>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="{% static 'hhands/style.css' %}">
     </head>
     <body>
+        <main>
         <div class="container">
-            <nav>
-                <ul>
-                    <li>Sobre Nós</li>
-                    <li>Contato</li>
-                    <li>História</li>
-                </ul>
-            </nav>
-            <h1>Our web-app project</h1>
+            <h1>Acompanhe os principais alertas ao redor do mundo</h1>
             <div class='container'>
                 {% block body %}{% endblock body %}
             </div>
             {% block extra_js %}{% endblock extra_js %}
         </div>
+        </main>
+        <p>Dados obtidos pelo observatório de eventos terrestres da NASA</p>
     </body>
 </html>

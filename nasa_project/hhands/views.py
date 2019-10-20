@@ -8,7 +8,6 @@ import json, requests
 # NASA Natural Disasters Climatic Database Raw Data
 CLIMATIC_DATABASE_URL = 'https://eonet.sci.gsfc.nasa.gov/api/v2.1/events'
 
-
 def getClimaticEvents(n):
     headers = {'Content-Type': 'application/json'}
     response = requests.get(CLIMATIC_DATABASE_URL + '?limit=' + str(n), headers=headers)
@@ -31,6 +30,15 @@ def index(request):
     redirect = 'hhands/landing.html'
     return render(request, redirect, {})
 
+def about(request):
+    return render(request, 'hhands/about.html')
+
 def app(request):
-    app_context = Context({'gjson': getClimaticEvents(5)}) 
-    return render(request, 'hhands/app.html')
+    app_context = {'gjson': getClimaticEvents(5)} 
+    return render(request, 'hhands/app.html', context = app_context)
+
+if __name__ == "__main__":
+    k = getClimaticEvents(5)
+    
+    print(k)
+    pass

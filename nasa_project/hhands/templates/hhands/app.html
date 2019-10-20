@@ -1,22 +1,56 @@
 {% extends 'hhands/base.html' %}
 
 {% block body %}
-    <div id='map' style="width: 80%; height: 640px; position: right"></div>
+    <div id='map' style="width: 80%; height: 480px; position: right; border: 5px purple solid;"></div>
 {% endblock body %}
 
 {% block extra_js %}
+<style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; width:90%; height:10px; margin: 0 auto; bottom: 50px;}
+        .marker {
+            background-color: red;
+            background-size: cover;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .mapboxgl-popup {
+            max-width: 200px;
+        }
+        .mapboxgl-popup-content {
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
     <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYWRyaWFud3IiLCJhIjoiY2sxeHdhamxkMGM2MDNub2lscGQyNHo2bSJ9.7FvJIEav3cZQbB2XwoAIVw';
-    
-    var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11'
-    });
 
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYWRyaWFud3IiLCJhIjoiY2sxeHdhamxkMGM2MDNub2lscGQyNHo2bSJ9.7FvJIEav3cZQbB2XwoAIVw';
 
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v10',
+        zoom: 1
+        });
+   
+        var geojson = {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [35.46019, 33.70215]}, "properties": {"event_id": "EONET_4462", "event_title": "Wildfires - Lebanon", "event_date": "2019-10-16T17:10:00Z", "event_category": "Wildfires"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-116.097, 40.897]}, "properties": {"event_id": "EONET_4461", "event_title": "Hunter Fire", "event_date": "2019-10-14T11:30:00Z", "event_category": "Wildfires"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-116.95485, 33.91219]}, "properties": {"event_id": "EONET_4457", "event_title": "Wildfires - Riverside County (Wolf Fire), California, United States", "event_date": "2019-10-11T15:58:00Z", "event_category": "Wildfires"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-118.510869853, 34.324001137]}, "properties": {"event_id": "EONET_4458", "event_title": "Wildfires - Los Angeles County (Saddleridge Fire), California, United States", "event_date": "2019-10-11T11:15:00Z", "event_category": "Wildfires"}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-117.06467, 33.99314]}, "properties": {"event_id": "EONET_4448", "event_title": "Wildfire - Riverside County (Sandalwood Fire), California, United States", "event_date": "2019-10-11T00:10:00Z", "event_category": "Wildfires"}}]};
+        geojson.features.forEach(function(marker) {
+         
+            var now = new Date()
+            var el = document.createElement('div');
+            el.className = 'marker';
+                     
+
+            new mapboxgl.Marker(el)
+            .setLngLat(marker.geometry.coordinates)
+            .setPopup(new mapboxgl.Popup({offset: 25}) // add popups
+            .setHTML('<h3>' + marker.properties.event_title + '</h3><p>' + '</p>'))
+            .addTo(map);
+        }); 
+            
     </script>
+
 {% endblock extra_js %}
-
-
