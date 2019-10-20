@@ -3,7 +3,7 @@ main {
     height: 500px;
     background: no-repeat;
     background-size: 100% 600px;
-    background-image: url("images/bi.png");
+    background-image: url("images/background.jpeg");
 }
 
 a {
