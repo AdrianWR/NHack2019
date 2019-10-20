@@ -100,7 +100,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'hhands.User'
+#AUTH_USER_MODEL = 'hhands.User'
 
 
 # Internationalization
